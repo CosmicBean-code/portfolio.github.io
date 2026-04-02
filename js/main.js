@@ -6,11 +6,37 @@ function principalfontsize() {
     document.querySelector('#html').style.fontSize = fontSize + 'px';
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function init() {
     principalfontsize();
     ChangeFontH1();
 
     window.addEventListener('resize', () => {
         principalfontsize();  // Recalcula área cada cambio
     });
-});
+
+    const moreButton = document.querySelector('.more');
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    if (moreButton && nav) {
+        moreButton.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    }
+
+    if (navLinks.length > 0) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                }
+            });
+        });
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}

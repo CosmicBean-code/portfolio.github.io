@@ -111,24 +111,26 @@ header{
 
 nav{
     background-color: transparent;
-    width: 70%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-nav ul{
-    background-color: transparent;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+nav ul{
+    background-color: transparent;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 nav ul li{
     background-color: transparent;
     list-style: none;
-    width: 30%;
+    width: auto;
+    padding: 0 1rem;
     height: 100%;
     font-size: 100%;
     overflow: hidden;
@@ -160,7 +162,7 @@ nav ul li a:hover{
     height: 3rem;
     width: 3rem;
     border-radius: 50%;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -208,8 +210,9 @@ main{
     background-color: transparent;
     margin: 1rem 1rem 1rem 1rem;
     padding: 1rem;
-    height: 5rem;
+    height: 7rem;
     width: calc(100% - 2rem);
+    pointer-events: none;
 }
 
 h1{
@@ -669,15 +672,24 @@ h1 a{
 
 #projects-link{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: transparent;
     width: 100%;
     height: 100%;
+    position: relative;
+}
+#projects-link .grey-circle {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
 }
 #a-to-projects{
-    width: 70%;
-    margin-left: 10%;
+    width: auto;
+    margin: 0;
+    text-align: center;
 }
 #projects{
     color: #FF8800;
@@ -704,4 +716,163 @@ h1 a{
     to { filter: drop-shadow(10px -4px -4px rgba(255, .8)) drop-shadow(-10px -4px -4px rgba(255,.8)); }
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* General screen adjustments */
+    body {
+        overflow-x: hidden;
+    }
+    
+    h1 {
+        font-size: 1.8rem !important;
+        text-align: center;
+        width: 100%;
+    }
 
+    /* Header and nav */
+    .more {
+        display: flex;
+        z-index: 10000;
+    }
+    nav {
+        position: absolute;
+        top: 6rem;
+        right: 1.5rem;
+        width: 250px;
+        height: auto;
+        background: rgba(0, 4, 40, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        border-radius: 1rem;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1rem 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        transform: translateY(-20px);
+        z-index: 9998;
+    }
+    nav.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    nav ul {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        gap: 1rem;
+    }
+    nav ul li {
+        width: 100%;
+        height: auto;
+        font-size: 1.2rem;
+        padding: 0.5rem 0;
+    }
+
+    /* General screen adjustments */
+    body {
+        overflow-x: hidden;
+    }
+    .screen_2, .screen_3, .screen_4, .screen_5 {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 2rem;
+    }
+
+    /* Screen 2 - About Me */
+    .screen_2 .card {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+    .screen_2 .image-container {
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+    }
+    .about_me_card {
+        width: 100%;
+        height: auto;
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    /* Screen 3 - Education */
+    .school-container {
+        flex-direction: column;
+        height: auto;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .school {
+        width: 90%;
+        height: auto;
+        padding: 1rem;
+    }
+    .school img {
+        height: 150px;
+    }
+
+    /* Screen 4 - Skills */
+    .skill {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        gap: 1rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    .skill img {
+        width: 40%;
+        height: auto;
+    }
+    .skill p {
+        width: 100%;
+        height: auto;
+    }
+    .contact {
+        width: 90%;
+        height: auto;
+        margin-top: 2rem;
+        padding: 1rem;
+    }
+
+    /* Screen 5 - Interests */
+    .interest {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        position: relative;
+        padding: 0 3rem; /* Provide space for absolute arrows */
+    }
+    .interest .grey-circle {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+        z-index: 10;
+    }
+    .interest .grey-circle:first-child {
+        left: 0.5rem;
+    }
+    .interest .grey-circle:last-child {
+        right: 0.5rem;
+    }
+
+    .futuristic-card {
+        width: 85%;
+        height: auto;
+        min-height: 40vh;
+    }
+    .interest img {
+        width: 85%; /* Match futuristic-card width */
+        height: auto;
+        max-height: 250px;
+        clip-path: none;
+        border-radius: 1rem;
+    }
+}

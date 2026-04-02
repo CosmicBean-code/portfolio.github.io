@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Cosmic Bean</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/icon.svg">
+    <style>
+        .profile-page {
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-header {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #96a9c7;
+            transform: translateX(-5px);
+        }
+
+        .profile-card {
+            width: 90%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 2rem;
+            gap: 2rem;
+        }
+
+        .profile-card-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 61% 36% 29% 68% / 47% 48% 44% 34%;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: border-radius 0.5s ease;
+        }
+
+        .profile-card-image:hover {
+            border-radius: 17% 52% 35% 40% / 22% 33% 53% 57%;
+        }
+
+        .profile-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-card .social_media {
+            width: 100%;
+            height: 60px; /* Force a consistent height for the container */
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .profile-card .social_media_app {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars-small"></div>
+    
+    <main class="profile-page">
+        <div class="profile-header">
+            <a href="index.html" class="back-link">
+                Back
+            </a>
+        </div>
+
+        <div class="glass profile-card">
+            <div class="profile-card-image">
+                <img src="img/profile_pic.svg" alt="Profile Picture">
+            </div>
+
+            <div class="social_media">
+                <a href="https://github.com/CosmicBean-code" class="social_media_app" target="_blank">
+                    <img src="img/github_icon.svg" alt="Git Hub Icon">
+                </a>
+                <a href="mailto:migabrit.lml@gmail.com" class="social_media_app" target="_blank">
+                    <img src="img/gmail_icon.svg" alt="Gmail Icon">
+                </a>
+                <a href="https://www.instagram.com/mky.b9/" class="social_media_app" target="_blank">
+                    <img src="img/instagram_icon.svg" alt="Instagram Icon">
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
